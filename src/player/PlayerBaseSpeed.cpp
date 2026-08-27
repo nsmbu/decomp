@@ -1,5 +1,7 @@
 #include <player/PlayerBase.h>
 #include <player/PlayerHIO_Air.h>
+#include <player/PlayerHIO_ChibiYoshi.h>
+#include <player/PlayerHIO_Turn.h>
 #include <scroll/BgScrollMgr.h>
 
 ActorBgCollisionCheck::SakaType PlayerBase::getSakaType(DirType dir)
@@ -88,12 +90,13 @@ void PlayerBase::maxFallSpeedSet()
 
 void PlayerBase::setUnkJumpGravity()
 {
-    setJumpGravity(cPlayerUnkJumpGravityData.thresholds, cPlayerUnkJumpGravityData.normal_gravity);
+    const PlayerGravityData& gravity_data = PlayerHIO_ChibiYoshi::cUnkGravityData;
+    setJumpGravity(gravity_data.jump_data.thresholds, gravity_data.jump_data.normal_gravity);
 }
 
 void PlayerBase::setButtonJumpGravity()
 {
-    const PlayerGravityHIO* p_gravity_data = getGravityData();
+    const PlayerGravityData* p_gravity_data = getGravityData();
     setJumpGravity(p_gravity_data->jump_data.thresholds, p_gravity_data->jump_data.button_gravity);
 }
 
@@ -102,7 +105,7 @@ void PlayerBase::setNormalJumpGravity()
     if (mSpeed.y <= 1.5f)
         mPlayerKey.offStatus(PlayerKey::cStatus_NoJump);
 
-    const PlayerGravityHIO* p_gravity_data = getGravityData();
+    const PlayerGravityData* p_gravity_data = getGravityData();
     setJumpGravity(p_gravity_data->jump_data.thresholds, p_gravity_data->jump_data.normal_gravity);
 }
 
@@ -314,18 +317,18 @@ void PlayerBase::slipPowerSet()
     icePowerChange(true);
 }
 
-void PlayerBase::getPowerData(PlayerPowerData& out_data)
+void PlayerBase::getSpeedPowerData(PlayerSpeedPowerData& out_data)
 {
     switch (getPowerChangeType())
     {
     case cPowerChangeType_Ice:
-        out_data = getSpeedData()->power_data_ice;
+        out_data = getSpeedData()->power_ice;
         break;
     case cPowerChangeType_Snow:
-        out_data = getSpeedData()->power_data_snow;
+        out_data = getSpeedData()->power_snow;
         break;
     default:
-        out_data = getSpeedData()->power_data_normal;
+        out_data = getSpeedData()->power_normal;
         break;
     }
 }
@@ -336,8 +339,8 @@ void PlayerBase::normalPowerSet()
         mPow = 0.75f;
     else
     {
-        PlayerPowerData power_data;
-        getPowerData(power_data);
+        PlayerSpeedPowerData power_data;
+        getSpeedPowerData(power_data);
 
         DirType walk_dir;
         if (!mPlayerKey.buttonWalk(&walk_dir))
@@ -416,7 +419,7 @@ void PlayerBase::normalPowerSet()
 void PlayerBase::grandPowerSet()
 {
     if (isOnSinkSand())
-        mPow = getSpeedData()->power_data_normal.x_accel_stage0;
+        mPow = getSpeedData()->power_normal.x_accel_stage0;
     else
     {
         if (isStatus(cStatus_73))
@@ -430,7 +433,7 @@ void PlayerBase::airPowerSet()
 {
     bool is_star = isStar();
     bool is_luigi_phys = isEnableRDashLuigiPhysics();
-    const PlayerAirHIO& air_data = cPlayerAirData[is_luigi_phys][is_star];
+    const PlayerAirData& air_data = PlayerHIO_Air::cData[is_luigi_phys][is_star];
     if (_4e8 && sead::Mathf::abs(mSpeedF) > 1.0f)
         mPow = 0.2f;
     else
@@ -479,7 +482,7 @@ void PlayerBase::powerSet()
         airPowerSet();
 }
 
-void PlayerBase::getPowerTurnData(PlayerPowerTurnData& out_data)
+void PlayerBase::getTurnPowerData(PlayerTurnPowerData& out_data)
 {
     bool is_star = isStar();
     bool is_luigi_phys = isEnableRDashLuigiPhysics();
@@ -488,13 +491,13 @@ void PlayerBase::getPowerTurnData(PlayerPowerTurnData& out_data)
     default:
         break;
     case cPowerChangeType_Normal:
-        out_data = cPlayerTurnData[is_luigi_phys].power_turn_normal[is_star];
+        out_data = PlayerHIO_Turn::cData[is_luigi_phys].power_normal[is_star];
         break;
     case cPowerChangeType_Ice:
-        out_data = cPlayerTurnData[is_luigi_phys].power_turn_ice[is_star];
+        out_data = PlayerHIO_Turn::cData[is_luigi_phys].power_ice[is_star];
         break;
     case cPowerChangeType_Snow:
-        out_data = cPlayerTurnData[is_luigi_phys].power_turn_snow[is_star];
+        out_data = PlayerHIO_Turn::cData[is_luigi_phys].power_snow[is_star];
         break;
     }
 }

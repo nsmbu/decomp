@@ -155,7 +155,7 @@ void PlayerObject::initializeState_BalloonChibiYoshiFly()
         break;
     case 0:
         mAction = cBalloonChibiYoshiFlyAction_Fly;
-        mSpeed.y = cBalloonChibiYoshiFlyInitSpeedY;
+        mSpeed.y = PlayerHIO_ChibiYoshi::cBalloonCYFlyInitSpeedY;
         mSpinRotStep = cBalloonChibiYoshiFlyRotStep;
         _2a6c = 10;
         _2a78 = 20;
@@ -163,7 +163,7 @@ void PlayerObject::initializeState_BalloonChibiYoshiFly()
         break;
     case 1:
         mAction = cBalloonChibiYoshiFlyAction_FlyForceFall;
-        mSpeed.y = cBalloonChibiYoshiFlyInitSpeedY;
+        mSpeed.y = PlayerHIO_ChibiYoshi::cBalloonCYFlyInitSpeedY;
         mSpinRotStep = cBalloonChibiYoshiFlyRotStep;
         _2a6c = 10;
         _2a78 = 20;
@@ -172,9 +172,9 @@ void PlayerObject::initializeState_BalloonChibiYoshiFly()
         break;
     case 2:
         mAction = cBalloonChibiYoshiFlyAction_Fly;
-        f32 speed_y = mSpeed.y * cBalloonChibiYoshiFlySmallInitSpeedYDecel;
-        if (speed_y > cBalloonChibiYoshiFlyInitSpeedYMax)
-            speed_y = cBalloonChibiYoshiFlyInitSpeedYMax;
+        f32 speed_y = mSpeed.y * PlayerHIO_ChibiYoshi::cBalloonCYFlySmallInitSpeedYDecel;
+        if (speed_y > PlayerHIO_ChibiYoshi::cBalloonCYFlyInitSpeedYMax)
+            speed_y = PlayerHIO_ChibiYoshi::cBalloonCYFlyInitSpeedYMax;
         mSpeed.y = speed_y;
         mLiftUpOffsetRatio = 1.0f;
         break;
@@ -235,14 +235,14 @@ void PlayerObject::executeState_BalloonChibiYoshiFly()
         isEnableBalloonChibiYoshiFlySpin() &&
         mPlayerKey.triggerShakeJump() &&
         mActionTimer == 0 &&
-        mSpeed.y < cBalloonChibiYoshiFlySpinTrigSpeedY)
+        mSpeed.y < PlayerHIO_ChibiYoshi::cBalloonCYFlySpinTrigSpeedY)
     {
         onStatus(cStatus_141);
-        mActionTimer = cBalloonChibiYoshiFlyAscendMinTime;
-        mBalloonChibiYoshiFlyAscendGravityTimer = cBalloonChibiYoshiFlyAscendGravityTime;
-        mSpeed.y += cBalloonChibiYoshiFlySpinAddSpeedY;
-        if (mSpeed.y >= cBalloonChibiYoshiFlySpinSpeedYMax)
-            mSpeed.y = cBalloonChibiYoshiFlySpinSpeedYMax;
+        mActionTimer = PlayerHIO_ChibiYoshi::cBalloonCYFlyAscendMinTime;
+        mBalloonChibiYoshiFlyAscendGravityTimer = PlayerHIO_ChibiYoshi::cBalloonCYFlyAscendGravityTime;
+        mSpeed.y += PlayerHIO_ChibiYoshi::cBalloonCYFlySpinAddSpeedY;
+        if (mSpeed.y >= PlayerHIO_ChibiYoshi::cBalloonCYFlySpinSpeedYMax)
+            mSpeed.y = PlayerHIO_ChibiYoshi::cBalloonCYFlySpinSpeedYMax;
         setBalloonChibiYoshiFlyAnm(PlayerAnmID::spin_jump3, 5.0f);
         mAction = cBalloonChibiYoshiFlyAction_Fly;
         mSpinRotStep = cBalloonChibiYoshiFlyRotStep;
@@ -252,32 +252,32 @@ void PlayerObject::executeState_BalloonChibiYoshiFly()
     DirType walk_dir;
     if (!mPlayerKey.buttonWalk(&walk_dir))
     {
-        mPow = cBalloonChibiYoshiFlyAccelF;
+        mPow = PlayerHIO_ChibiYoshi::cBalloonCYFlyAccelF;
         f32 max_speed_F = sead::Mathf::abs(mSpeedF);
-        if (max_speed_F > cBalloonChibiYoshiFlyMaxSpeedF)
-            max_speed_F = cBalloonChibiYoshiFlyMaxSpeedF;
+        if (max_speed_F > PlayerHIO_ChibiYoshi::cBalloonCYFlyMaxSpeedF)
+            max_speed_F = PlayerHIO_ChibiYoshi::cBalloonCYFlyMaxSpeedF;
         mMaxSpeedF = max_speed_F * cDirSpeed[mDirection];
     }
     else
     {
-        mPow = cBalloonChibiYoshiFlyAccelF;
-        mMaxSpeedF = cBalloonChibiYoshiFlyMaxSpeedF * cDirSpeed[walk_dir];
+        mPow = PlayerHIO_ChibiYoshi::cBalloonCYFlyAccelF;
+        mMaxSpeedF = PlayerHIO_ChibiYoshi::cBalloonCYFlyMaxSpeedF * cDirSpeed[walk_dir];
     }
-    mMaxFallSpeed = cBalloonChibiYoshiFlyMaxFallSpeed;
+    mMaxFallSpeed = PlayerHIO_ChibiYoshi::cBalloonCYFlyMaxFallSpeed;
 
     switch (mAction)
     {
     case cBalloonChibiYoshiFlyAction_Fall:
-        mGravity = cBalloonChibiYoshiFlyDescendGravity;
+        mGravity = PlayerHIO_ChibiYoshi::cBalloonCYFlyDescendGravity;
         break;
     default:
         break;
     case cBalloonChibiYoshiFlyAction_Fly:
         if (mBalloonChibiYoshiFlyAscendGravityTimer == 0)
-            mGravity = cBalloonChibiYoshiFlyAscendEndGravity;
+            mGravity = PlayerHIO_ChibiYoshi::cBalloonCYFlyAscendEndGravity;
         else
-            mGravity = cBalloonChibiYoshiFlyAscendGravity[0];
-        if (mActionTimer == 0 && mSpeed.y < cBalloonChibiYoshiFlyDescendStartSpeedY)
+            mGravity = PlayerHIO_ChibiYoshi::cBalloonCYFlyAscendGravity;
+        if (mActionTimer == 0 && mSpeed.y < PlayerHIO_ChibiYoshi::cBalloonCYFlyDescendStartSpeedY)
         {
             mAction = cBalloonChibiYoshiFlyAction_Fall;
             setBalloonChibiYoshiFlyAnm(PlayerAnmID::PL_spin_jump, 30.0f);

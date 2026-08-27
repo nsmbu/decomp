@@ -24,9 +24,9 @@
 #include <map_obj/ActorBlockMakeDRC.h>
 #include <map_obj/BlockCoinBase.h>
 #include <map_obj/ChibiYoshiAwaData.h>
+#include <player/PlayerIce.h>
 #include <player/PlayerMgr.h>
 #include <player/PlayerObject.h>
-#include <player/PlyIce.h>
 #include <scroll/BgScrollMgr.h>
 #include <system/MainGame.h>
 
@@ -922,9 +922,9 @@ bool Actor::setPressBreakIce_(const BgCollision* p_bg_collision)
                 static_cast<PentaroIce*>(p_actor)->breakReq(this);
                 return true;
             }
-            else if (p_actor->getProfileID() == ProfileInfo::cProfileID_PlyIce)
+            else if (p_actor->getProfileID() == ProfileInfo::cProfileID_PlayerIce)
             {
-                static_cast<PlyIce*>(p_actor)->breakReq();
+                static_cast<PlayerIce*>(p_actor)->breakReq();
                 return true;
             }
             else

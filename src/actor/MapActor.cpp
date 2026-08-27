@@ -454,7 +454,7 @@ const MapActor::Profile MapActor::cProfileID[] = {
     ProfileInfo::cProfileID_328,                                        // 449
     ProfileInfo::cProfileID_KameckIceConfig,                            // 450
     ProfileInfo::cProfileID_1C8,                                        // 451
-    ProfileInfo::cProfileID_SlotYoshiChibi,                             // 452
+    ProfileInfo::cProfileID_SlotChibiYoshi,                             // 452
     ProfileInfo::cProfileID_148,                                        // 453
     ProfileInfo::cProfileID_149,                                        // 454
     ProfileInfo::cProfileID_010,                                        // 455
@@ -558,7 +558,7 @@ const MapActor::Profile MapActor::cProfileID[] = {
     ProfileInfo::cProfileID_16C,                                        // 553
     ProfileInfo::cProfileID_346,                                        // 554
     ProfileInfo::cProfileID_17C,                                        // 555
-    ProfileInfo::cProfileID_StaffCreditChibiYoshiABC,                   // 556
+    ProfileInfo::cProfileID_StaffRollChibiYoshiChar,                    // 556
     ProfileInfo::cProfileID_StaffRollMgr,                               // 557
     ProfileInfo::cProfileID_PeachFinalCastleKoopaJrDemo,                // 558
     ProfileInfo::cProfileID_1CA,                                        // 559

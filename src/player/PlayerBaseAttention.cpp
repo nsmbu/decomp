@@ -1,7 +1,7 @@
 #include <actor/ActorMgr.h>
 #include <actor/AttentionLookat.h>
 #include <actor/AttentionMgr.h>
-#include <player/PlayerCommon.h>
+#include <player/PlayerHIO_General.h>
 #include <player/PlayerMgr.h>
 #include <player/PlayerObject.h>
 #include <utility/MathUtil.h>
@@ -63,12 +63,12 @@ bool PlayerBase::calcHeadAttentionAngle_(const sead::Vector2f& target_pos, sead:
         )
     );
 
-    Angle max_angle_z = PlayerCommon::cMaxAngleZ_1;
-    Angle min_angle_z = PlayerCommon::cMinAngleZ_1;
+    Angle max_angle_z = PlayerHIO_General::cMaxAngleZ_1;
+    Angle min_angle_z = PlayerHIO_General::cMinAngleZ_1;
     if (flag.isOnBit(3))
     {
-        max_angle_z = PlayerCommon::cMaxAngleZ_2;
-        min_angle_z = PlayerCommon::cMinAngleZ_2;
+        max_angle_z = PlayerHIO_General::cMaxAngleZ_2;
+        min_angle_z = PlayerHIO_General::cMinAngleZ_2;
     }
 
     if (angle_z < min_angle_z)
@@ -174,7 +174,7 @@ void PlayerBase::calcHeadAttentionAngle()
                     ActorBase* p_actor_lookat = ActorMgr::instance()->getActorPtr(p_attention_lookat->getOwnerID());
                     if (p_actor_lookat != nullptr)
                     {
-                        if (calcHeadAttentionAngle_(p_attention_lookat->getPos(), p_attention_lookat->getFlag(), PlayerCommon::cMaxAngleY))
+                        if (calcHeadAttentionAngle_(p_attention_lookat->getPos(), p_attention_lookat->getFlag(), PlayerHIO_General::cMaxAngleY))
                             return;
                     }
                 }

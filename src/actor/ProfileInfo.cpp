@@ -272,7 +272,7 @@ const s16 ProfileInfo::cDrawPriority[cProfileID_Max] = {
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_0EA),                                  // ProfileInfo::cProfileID_0EA
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_0EB),                                  // ProfileInfo::cProfileID_0EB
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_0EC),                                  // ProfileInfo::cProfileID_0EC
-    PROFILE_INFO_DRAW_PRIO_DRAW(PlyIce),                                    // ProfileInfo::cProfileID_PlyIce
+    PROFILE_INFO_DRAW_PRIO_DRAW(PlayerIce),                                 // ProfileInfo::cProfileID_PlayerIce
     PROFILE_INFO_DRAW_PRIO_DRAW(TarzanIvy),                                 // ProfileInfo::cProfileID_TarzanIvy
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_0EF),                                  // ProfileInfo::cProfileID_0EF
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_0F0),                                  // ProfileInfo::cProfileID_0F0
@@ -488,7 +488,7 @@ const s16 ProfileInfo::cDrawPriority[cProfileID_Max] = {
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_1C2),                                  // ProfileInfo::cProfileID_1C2
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_1C3),                                  // ProfileInfo::cProfileID_1C3
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_1C4),                                  // ProfileInfo::cProfileID_1C4
-    PROFILE_INFO_DRAW_PRIO_DRAW(SlotYoshiChibi),                            // ProfileInfo::cProfileID_SlotYoshiChibi
+    PROFILE_INFO_DRAW_PRIO_DRAW(SlotChibiYoshi),                            // ProfileInfo::cProfileID_SlotChibiYoshi
     PROFILE_INFO_DRAW_PRIO_NO_DRAW(Prof_1C6),                               // ProfileInfo::cProfileID_1C6
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_1C7),                                  // ProfileInfo::cProfileID_1C7
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_1C8),                                  // ProfileInfo::cProfileID_1C8
@@ -875,14 +875,14 @@ const s16 ProfileInfo::cDrawPriority[cProfileID_Max] = {
     PROFILE_INFO_DRAW_PRIO_NO_DRAW(Prof_345),                               // ProfileInfo::cProfileID_345
     PROFILE_INFO_DRAW_PRIO_NO_DRAW(Prof_346),                               // ProfileInfo::cProfileID_346
     PROFILE_INFO_DRAW_PRIO_NO_DRAW(Prof_347),                               // ProfileInfo::cProfileID_347
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditChibiYoshiABC),                  // ProfileInfo::cProfileID_StaffCreditChibiYoshiABC
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditChibiYoshiBalloon),              // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloon
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditChibiYoshiBalloonCheer),         // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloonCheer
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditChibiYoshiLight),                // ProfileInfo::cProfileID_StaffCreditChibiYoshiLight
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditChibiYoshiLightCheer),           // ProfileInfo::cProfileID_StaffCreditChibiYoshiLightCheer
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditSoapABC),                        // ProfileInfo::cProfileID_StaffCreditSoapABC
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditSoapCoin),                       // ProfileInfo::cProfileID_StaffCreditSoapCoin
-    PROFILE_INFO_DRAW_PRIO_DRAW(StaffCreditTottenKun),                      // ProfileInfo::cProfileID_StaffCreditTottenKun
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollChibiYoshiChar),                   // ProfileInfo::cProfileID_StaffRollChibiYoshiChar
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollChibiYoshiBalloon),                // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloon
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollChibiYoshiBalloonCheer),           // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloonCheer
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollChibiYoshiLight),                  // ProfileInfo::cProfileID_StaffRollChibiYoshiLight
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollChibiYoshiLightCheer),             // ProfileInfo::cProfileID_StaffRollChibiYoshiLightCheer
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollAwaChar),                          // ProfileInfo::cProfileID_StaffRollAwaChar
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollAwaCoin),                          // ProfileInfo::cProfileID_StaffRollAwaCoin
+    PROFILE_INFO_DRAW_PRIO_DRAW(StaffRollTottenKun),                        // ProfileInfo::cProfileID_StaffRollTottenKun
     PROFILE_INFO_DRAW_PRIO_DRAW(Prof_350),                                  // ProfileInfo::cProfileID_350
     PROFILE_INFO_DRAW_PRIO_NO_DRAW(Prof_351),                               // ProfileInfo::cProfileID_351
     PROFILE_INFO_DRAW_PRIO_NO_DRAW(Prof_352),                               // ProfileInfo::cProfileID_352
@@ -1190,7 +1190,7 @@ const s8 ProfileInfo::cResType[cProfileID_Max] = {
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_0EA
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_0EB
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_0EC
-    ProfileInfo::cResType_Boot,         // ProfileInfo::cProfileID_PlyIce
+    ProfileInfo::cResType_Boot,         // ProfileInfo::cProfileID_PlayerIce
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_TarzanIvy
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_0EF
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_0F0
@@ -1406,7 +1406,7 @@ const s8 ProfileInfo::cResType[cProfileID_Max] = {
     ProfileInfo::cResType_Boot,         // ProfileInfo::cProfileID_1C2
     ProfileInfo::cResType_Boot,         // ProfileInfo::cProfileID_1C3
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_1C4
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_SlotYoshiChibi
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_SlotChibiYoshi
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_1C6
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_1C7
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_1C8
@@ -1793,14 +1793,14 @@ const s8 ProfileInfo::cResType[cProfileID_Max] = {
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_345
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_346
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_347
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditChibiYoshiABC
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloon
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloonCheer
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditChibiYoshiLight
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditChibiYoshiLightCheer
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditSoapABC
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditSoapCoin
-    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffCreditTottenKun
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollChibiYoshiChar
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloon
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloonCheer
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollChibiYoshiLight
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollChibiYoshiLightCheer
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollAwaChar
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollAwaCoin
+    ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_StaffRollTottenKun
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_350
     ProfileInfo::cResType_Course,       // ProfileInfo::cProfileID_351
     ProfileInfo::cResType_Boot,         // ProfileInfo::cProfileID_352
@@ -2769,7 +2769,7 @@ static const sead::SafeString cRes_0EC[]  = {
     "obj_waterfloat"
 };
 
-static const sead::SafeString cRes_PlyIce[]  = {
+static const sead::SafeString cRes_PlayerIce[]  = {
     "ice"
 };
 
@@ -3535,7 +3535,7 @@ static const sead::SafeString cRes_1C3[]  = {
     "I_musasabi"
 };
 
-static const sead::SafeString cRes_SlotYoshiChibi[]  = {
+static const sead::SafeString cRes_SlotChibiYoshi[]  = {
     "YoshiChibi_TexBubble",
     "YoshiChibi_TexBalloon",
     "YoshiChibi_TexLight",
@@ -4943,37 +4943,37 @@ static const sead::SafeString cRes_342[]  = {
     "goal_kinoko_house"
 };
 
-static const sead::SafeString cRes_StaffCreditChibiYoshiABC[]  = {
+static const sead::SafeString cRes_StaffRollChibiYoshiChar[]  = {
     "YoshiChibi_TexBubble",
     "baloon_ABC"
 };
 
-static const sead::SafeString cRes_StaffCreditChibiYoshiBalloon[]  = {
+static const sead::SafeString cRes_StaffRollChibiYoshiBalloon[]  = {
     "YoshiChibi_TexBalloon"
 };
 
-static const sead::SafeString cRes_StaffCreditChibiYoshiBalloonCheer[]  = {
+static const sead::SafeString cRes_StaffRollChibiYoshiBalloonCheer[]  = {
     "YoshiChibi_TexBalloon"
 };
 
-static const sead::SafeString cRes_StaffCreditChibiYoshiLight[]  = {
+static const sead::SafeString cRes_StaffRollChibiYoshiLight[]  = {
     "YoshiChibi_TexLight"
 };
 
-static const sead::SafeString cRes_StaffCreditChibiYoshiLightCheer[]  = {
+static const sead::SafeString cRes_StaffRollChibiYoshiLightCheer[]  = {
     "YoshiChibi_TexLight"
 };
 
-static const sead::SafeString cRes_StaffCreditSoapABC[]  = {
+static const sead::SafeString cRes_StaffRollAwaChar[]  = {
     "baloon_ABC"
 };
 
-static const sead::SafeString cRes_StaffCreditSoapCoin[]  = {
+static const sead::SafeString cRes_StaffRollAwaCoin[]  = {
     "balloon",
     "obj_coin"
 };
 
-static const sead::SafeString cRes_StaffCreditTottenKun[]  = {
+static const sead::SafeString cRes_StaffRollTottenKun[]  = {
     "shadowkun"
 };
 
@@ -5476,7 +5476,7 @@ const u8 ProfileInfo::cResNum[cProfileID_Max] = {
     GetResNum(cRes_0EA),                                        // ProfileInfo::cProfileID_0EA
     GetResNum(cRes_0EB),                                        // ProfileInfo::cProfileID_0EB
     GetResNum(cRes_0EC),                                        // ProfileInfo::cProfileID_0EC
-    GetResNum(cRes_PlyIce),                                     // ProfileInfo::cProfileID_PlyIce
+    GetResNum(cRes_PlayerIce),                                  // ProfileInfo::cProfileID_PlayerIce
     GetResNum(cRes_TarzanIvy),                                  // ProfileInfo::cProfileID_TarzanIvy
     GetResNum(cRes_0EF),                                        // ProfileInfo::cProfileID_0EF
     GetResNum(cRes_0F0),                                        // ProfileInfo::cProfileID_0F0
@@ -5692,7 +5692,7 @@ const u8 ProfileInfo::cResNum[cProfileID_Max] = {
     GetResNum(cRes_1C2),                                        // ProfileInfo::cProfileID_1C2
     GetResNum(cRes_1C3),                                        // ProfileInfo::cProfileID_1C3
     0,                                                          // ProfileInfo::cProfileID_1C4
-    GetResNum(cRes_SlotYoshiChibi),                             // ProfileInfo::cProfileID_SlotYoshiChibi
+    GetResNum(cRes_SlotChibiYoshi),                             // ProfileInfo::cProfileID_SlotChibiYoshi
     GetResNum(cRes_1C6),                                        // ProfileInfo::cProfileID_1C6
     0,                                                          // ProfileInfo::cProfileID_1C7
     GetResNum(cRes_1C8),                                        // ProfileInfo::cProfileID_1C8
@@ -6079,14 +6079,14 @@ const u8 ProfileInfo::cResNum[cProfileID_Max] = {
     0,                                                          // ProfileInfo::cProfileID_345
     0,                                                          // ProfileInfo::cProfileID_346
     0,                                                          // ProfileInfo::cProfileID_347
-    GetResNum(cRes_StaffCreditChibiYoshiABC),                   // ProfileInfo::cProfileID_StaffCreditChibiYoshiABC
-    GetResNum(cRes_StaffCreditChibiYoshiBalloon),               // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloon
-    GetResNum(cRes_StaffCreditChibiYoshiBalloonCheer),          // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloonCheer
-    GetResNum(cRes_StaffCreditChibiYoshiLight),                 // ProfileInfo::cProfileID_StaffCreditChibiYoshiLight
-    GetResNum(cRes_StaffCreditChibiYoshiLightCheer),            // ProfileInfo::cProfileID_StaffCreditChibiYoshiLightCheer
-    GetResNum(cRes_StaffCreditSoapABC),                         // ProfileInfo::cProfileID_StaffCreditSoapABC
-    GetResNum(cRes_StaffCreditSoapCoin),                        // ProfileInfo::cProfileID_StaffCreditSoapCoin
-    GetResNum(cRes_StaffCreditTottenKun),                       // ProfileInfo::cProfileID_StaffCreditTottenKun
+    GetResNum(cRes_StaffRollChibiYoshiChar),                    // ProfileInfo::cProfileID_StaffRollChibiYoshiChar
+    GetResNum(cRes_StaffRollChibiYoshiBalloon),                 // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloon
+    GetResNum(cRes_StaffRollChibiYoshiBalloonCheer),            // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloonCheer
+    GetResNum(cRes_StaffRollChibiYoshiLight),                   // ProfileInfo::cProfileID_StaffRollChibiYoshiLight
+    GetResNum(cRes_StaffRollChibiYoshiLightCheer),              // ProfileInfo::cProfileID_StaffRollChibiYoshiLightCheer
+    GetResNum(cRes_StaffRollAwaChar),                           // ProfileInfo::cProfileID_StaffRollAwaChar
+    GetResNum(cRes_StaffRollAwaCoin),                           // ProfileInfo::cProfileID_StaffRollAwaCoin
+    GetResNum(cRes_StaffRollTottenKun),                         // ProfileInfo::cProfileID_StaffRollTottenKun
     0,                                                          // ProfileInfo::cProfileID_350
     0,                                                          // ProfileInfo::cProfileID_351
     0,                                                          // ProfileInfo::cProfileID_352
@@ -6394,7 +6394,7 @@ const sead::SafeString* ProfileInfo::cResList[cProfileID_Max] = {
     cRes_0EA,                                       // ProfileInfo::cProfileID_0EA
     cRes_0EB,                                       // ProfileInfo::cProfileID_0EB
     cRes_0EC,                                       // ProfileInfo::cProfileID_0EC
-    cRes_PlyIce,                                    // ProfileInfo::cProfileID_PlyIce
+    cRes_PlayerIce,                                 // ProfileInfo::cProfileID_PlayerIce
     cRes_TarzanIvy,                                 // ProfileInfo::cProfileID_TarzanIvy
     cRes_0EF,                                       // ProfileInfo::cProfileID_0EF
     cRes_0F0,                                       // ProfileInfo::cProfileID_0F0
@@ -6610,7 +6610,7 @@ const sead::SafeString* ProfileInfo::cResList[cProfileID_Max] = {
     cRes_1C2,                                       // ProfileInfo::cProfileID_1C2
     cRes_1C3,                                       // ProfileInfo::cProfileID_1C3
     nullptr,                                        // ProfileInfo::cProfileID_1C4
-    cRes_SlotYoshiChibi,                            // ProfileInfo::cProfileID_SlotYoshiChibi
+    cRes_SlotChibiYoshi,                            // ProfileInfo::cProfileID_SlotChibiYoshi
     cRes_1C6,                                       // ProfileInfo::cProfileID_1C6
     nullptr,                                        // ProfileInfo::cProfileID_1C7
     cRes_1C8,                                       // ProfileInfo::cProfileID_1C8
@@ -6997,14 +6997,14 @@ const sead::SafeString* ProfileInfo::cResList[cProfileID_Max] = {
     nullptr,                                        // ProfileInfo::cProfileID_345
     nullptr,                                        // ProfileInfo::cProfileID_346
     nullptr,                                        // ProfileInfo::cProfileID_347
-    cRes_StaffCreditChibiYoshiABC,                  // ProfileInfo::cProfileID_StaffCreditChibiYoshiABC
-    cRes_StaffCreditChibiYoshiBalloon,              // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloon
-    cRes_StaffCreditChibiYoshiBalloonCheer,         // ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloonCheer
-    cRes_StaffCreditChibiYoshiLight,                // ProfileInfo::cProfileID_StaffCreditChibiYoshiLight
-    cRes_StaffCreditChibiYoshiLightCheer,           // ProfileInfo::cProfileID_StaffCreditChibiYoshiLightCheer
-    cRes_StaffCreditSoapABC,                        // ProfileInfo::cProfileID_StaffCreditSoapABC
-    cRes_StaffCreditSoapCoin,                       // ProfileInfo::cProfileID_StaffCreditSoapCoin
-    cRes_StaffCreditTottenKun,                      // ProfileInfo::cProfileID_StaffCreditTottenKun
+    cRes_StaffRollChibiYoshiChar,                   // ProfileInfo::cProfileID_StaffRollChibiYoshiChar
+    cRes_StaffRollChibiYoshiBalloon,                // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloon
+    cRes_StaffRollChibiYoshiBalloonCheer,           // ProfileInfo::cProfileID_StaffRollChibiYoshiBalloonCheer
+    cRes_StaffRollChibiYoshiLight,                  // ProfileInfo::cProfileID_StaffRollChibiYoshiLight
+    cRes_StaffRollChibiYoshiLightCheer,             // ProfileInfo::cProfileID_StaffRollChibiYoshiLightCheer
+    cRes_StaffRollAwaChar,                          // ProfileInfo::cProfileID_StaffRollAwaChar
+    cRes_StaffRollAwaCoin,                          // ProfileInfo::cProfileID_StaffRollAwaCoin
+    cRes_StaffRollTottenKun,                        // ProfileInfo::cProfileID_StaffRollTottenKun
     nullptr,                                        // ProfileInfo::cProfileID_350
     nullptr,                                        // ProfileInfo::cProfileID_351
     nullptr,                                        // ProfileInfo::cProfileID_352
@@ -7311,7 +7311,7 @@ const s32 ProfileInfo::cProfileID_0E9                                       = 23
 const s32 ProfileInfo::cProfileID_0EA                                       = 234;
 const s32 ProfileInfo::cProfileID_0EB                                       = 235;
 const s32 ProfileInfo::cProfileID_0EC                                       = 236;
-const s32 ProfileInfo::cProfileID_PlyIce                                    = 237;
+const s32 ProfileInfo::cProfileID_PlayerIce                                 = 237;
 const s32 ProfileInfo::cProfileID_TarzanIvy                                 = 238;
 const s32 ProfileInfo::cProfileID_0EF                                       = 239;
 const s32 ProfileInfo::cProfileID_0F0                                       = 240;
@@ -7527,7 +7527,7 @@ const s32 ProfileInfo::cProfileID_1C1                                       = 44
 const s32 ProfileInfo::cProfileID_1C2                                       = 450;
 const s32 ProfileInfo::cProfileID_1C3                                       = 451;
 const s32 ProfileInfo::cProfileID_1C4                                       = 452;
-const s32 ProfileInfo::cProfileID_SlotYoshiChibi                            = 453;
+const s32 ProfileInfo::cProfileID_SlotChibiYoshi                            = 453;
 const s32 ProfileInfo::cProfileID_1C6                                       = 454;
 const s32 ProfileInfo::cProfileID_1C7                                       = 455;
 const s32 ProfileInfo::cProfileID_1C8                                       = 456;
@@ -7914,14 +7914,14 @@ const s32 ProfileInfo::cProfileID_344                                       = 83
 const s32 ProfileInfo::cProfileID_345                                       = 837;
 const s32 ProfileInfo::cProfileID_346                                       = 838;
 const s32 ProfileInfo::cProfileID_347                                       = 839;
-const s32 ProfileInfo::cProfileID_StaffCreditChibiYoshiABC                  = 840;
-const s32 ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloon              = 841;
-const s32 ProfileInfo::cProfileID_StaffCreditChibiYoshiBalloonCheer         = 842;
-const s32 ProfileInfo::cProfileID_StaffCreditChibiYoshiLight                = 843;
-const s32 ProfileInfo::cProfileID_StaffCreditChibiYoshiLightCheer           = 844;
-const s32 ProfileInfo::cProfileID_StaffCreditSoapABC                        = 845;
-const s32 ProfileInfo::cProfileID_StaffCreditSoapCoin                       = 846;
-const s32 ProfileInfo::cProfileID_StaffCreditTottenKun                      = 847;
+const s32 ProfileInfo::cProfileID_StaffRollChibiYoshiChar                   = 840;
+const s32 ProfileInfo::cProfileID_StaffRollChibiYoshiBalloon                = 841;
+const s32 ProfileInfo::cProfileID_StaffRollChibiYoshiBalloonCheer           = 842;
+const s32 ProfileInfo::cProfileID_StaffRollChibiYoshiLight                  = 843;
+const s32 ProfileInfo::cProfileID_StaffRollChibiYoshiLightCheer             = 844;
+const s32 ProfileInfo::cProfileID_StaffRollAwaChar                          = 845;
+const s32 ProfileInfo::cProfileID_StaffRollAwaCoin                          = 846;
+const s32 ProfileInfo::cProfileID_StaffRollTottenKun                        = 847;
 const s32 ProfileInfo::cProfileID_350                                       = 848;
 const s32 ProfileInfo::cProfileID_351                                       = 849;
 const s32 ProfileInfo::cProfileID_352                                       = 850;

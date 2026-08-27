@@ -7,7 +7,10 @@
 #include <input/InputMgr.h>
 #include <map/LayerID.h>
 #include <map_obj/BalloonChibiYoshi.h>
-#include <player/PlayerHIO_Character.h>
+#include <player/PlayerHIO_Anm.h>
+#include <player/PlayerHIO_FlyMusa.h>
+#include <player/PlayerHIO_Gravity.h>
+#include <player/PlayerHIO_Speed.h>
 #include <player/PlayerMgr.h>
 #include <player/PlayerObject.h>
 #include <player/Yoshi.h>
@@ -141,7 +144,7 @@ PlayerObject::PlayerObject(const ActorCreateParam& param)
     , mSpinHipAttackEffect()
     , _2cc4(0)
     , _2cc8(0)
-    , mPlyIceActorID()
+    , mPlayerIceActorID()
     , mQuakeMode()
     , mQuakeRumbleTimer(0)
     , _2cd8(0.0f)
@@ -212,7 +215,7 @@ PlayerObject::PlayerObject(const ActorCreateParam& param)
     , _340c(0)
     , _3410(0)
     , _3414()
-    , mOrchestra()
+    , mPlayerInstrument()
     , _3490(0)
     , _3494(0)
     , _3498()
@@ -610,9 +613,9 @@ void PlayerObject::calcModelRidePlayer()
     if (p_ride_player != nullptr)
     {
         if (mMode == cPlayerMode_Mini)
-            model_pos.y += GetCarryMiniPlayerAddYOffs(p_ride_player->mCharacter, p_ride_player->mMode);
+            model_pos.y += PlayerHIO_Anm::getCarryMiniPlayerAddYOffs(p_ride_player->mCharacter, p_ride_player->mMode);
         else if (mMode == cPlayerMode_Small)
-            model_pos.y += GetCarrySmallPlayerAddYOffs(p_ride_player->mCharacter, p_ride_player->mMode);
+            model_pos.y += PlayerHIO_Anm::getCarrySmallPlayerAddYOffs(p_ride_player->mCharacter, p_ride_player->mMode);
     }
 
     sead::Matrixf model_mtx;
@@ -729,8 +732,8 @@ void PlayerObject::setSpeedData()
         else
             index = 0 * 2 + 1;
     }
-    mpSpeedData_Normal = &(sPlayerSpeedData[index * 2 + 0]);
-    mpSpeedData_Star = &(sPlayerSpeedData[index * 2 + 1]);
+    mpSpeedData_Normal = &(PlayerHIO_Speed::cData[index * 2 + 0]);
+    mpSpeedData_Star = &(PlayerHIO_Speed::cData[index * 2 + 1]);
 }
 
 void PlayerObject::setModeGravity()
@@ -748,7 +751,7 @@ void PlayerObject::setPlayerModeImpl(PlayerMode mode, bool temporary)
     setPlayerData_();
     setCenterOffset();
     setSpeedData();
-    mPow = getSpeedData()->power_data_normal.x_accel_stage1;
+    mPow = getSpeedData()->power_normal.x_accel_stage1;
     setModeGravity();
 
     offStatus(cStatus_Penguin);
@@ -779,7 +782,7 @@ void PlayerObject::setPlayerModeImpl(PlayerMode mode, bool temporary)
         CourseTask::instance()->getPlayerData(mPlayerNo)->player_mode = mMode;
 }
 
-const PlayerGravityHIO* PlayerObject::getGravityData()
+const PlayerGravityData* PlayerObject::getGravityData()
 {
     s32 index = 0 * 2 + 0;
     if (isEnableRDashLuigiPhysics() && isEnableRDashLuigiGravity())
@@ -793,7 +796,7 @@ const PlayerGravityHIO* PlayerObject::getGravityData()
         if (isMameAction())
             index = 0 * 2 + 1;
     }
-    return &(cPlayerGravityData[index]);
+    return &(PlayerHIO_Gravity::cData[index]);
 }
 
 PlayerTallType PlayerObject::getTallType(PlayerMode mode)
@@ -1176,7 +1179,7 @@ bool PlayerObject::bouncePlayerSpin(f32 speed_y, f32 speed_F)
         bouncePlayer1(speed_y, speed_F, true, cBounceType_1, cJumpSe_None);
         break;
     case cSpinActionMode_Musa:
-        mSpeed.y = cPlayerMusaSpinJumpSpeed;
+        mSpeed.y = PlayerHIO_FlyMusa::cSpinJumpSpeed;
         changeState(StateID_SpinJump, makeSpinJumpParam(2, cJumpSe_Normal));
         break;
     case cSpinActionMode_Normal:

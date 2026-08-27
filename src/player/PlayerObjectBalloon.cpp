@@ -93,13 +93,13 @@ void PlayerObject::initializeState_Balloon()
         mBalloonCheckAllFadeTimer = 210;
         PlayerMgr::instance()->setAllBalloon();
     }
-    mModelMgr.setCapMode(PlayerModelBase::cCapMode_Normal);
+    mModelMgr.setHeadID(PlayerModelBase::cHeadType_Normal);
     mEffectScale = 1.0f;
     if (mMode != cPlayerMode_Small && mMode != cPlayerMode_Mini)
         mEffectScale = 0.9f;
     setScrollMode(cScrollMode_1);
     setZPosition(8000.0f);
-    mOrchestra.init(mPlayerNo);
+    mPlayerInstrument.init(mPlayerNo);
 }
 
 bool PlayerObject::checkAllBalloonFade()
@@ -202,8 +202,8 @@ void PlayerObject::executeState_Balloon()
         onStatus(cStatus_Invisible);
         break;
     case 5:
-        if (!PlayerMgr::instance()->isDisableOrchestra())
-            mOrchestra.update();
+        if (!PlayerMgr::instance()->isDisablePlayerInstrument())
+            mPlayerInstrument.update();
         if (!isNotBalloonCourse())
         {
             if (!isTotten())
